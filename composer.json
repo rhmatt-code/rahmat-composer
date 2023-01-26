@@ -1,0 +1,17 @@
+{
+    "name": "rhmatt/rahmat-composer",
+    "description": "Learn Composer",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Rahmat Abdullah",
+            "email": "rahmat.pwpb@gmail.com"
+        }
+    ],
+    "require": {
+        "fakerphp/faker": "^1.21",
+        "dompdf/dompdf": "^2.0"
+    },
+    "license": "MIT",
+    "minimum-stability": "stable"
+}
