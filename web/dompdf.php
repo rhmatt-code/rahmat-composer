@@ -1,15 +1,29 @@
-<?php 
-    require_once './../vendor/autoload.php';
+<?php
+require_once './../vendor/autoload.php';
 
-    $faker = Faker\Factory::create();
-    use Dompdf\Dompdf;
+$faker = Faker\Factory::create();
 
-    $dompdf = new Dompdf();
-    
+use Dompdf\Dompdf;
 
-    $html = "This is Document PDF <h1> THIS IS VERY COOOOLLLLL</h1>";
-    $dompdf->loadHtml($html);
-    $dompdf->setPaper('A4', 'landscape');
-    $dompdf->render();
-    $dompdf->stream();
-?>
+$dompdf = new Dompdf();
+
+
+$html = "<table border='1'>
+    <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+    </tr>";
+for ($i = 0; $i < 100; $i++) {
+    $html .= "<tr>";
+    $html .= "<td>" . $i . "</td>";
+    $html .= "<td>" . $faker->name() . "</td>";
+    $html .= "<td>" . $faker->email() . "</td>";
+    $html .= "<td>" . $faker->address() . "</td>";
+    $html .= "</tr>";
+};
+$dompdf->loadHtml($html);
+$dompdf->setPaper('A4', 'landscape');
+$dompdf->render();
+$dompdf->stream();
